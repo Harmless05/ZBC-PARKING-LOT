@@ -11,7 +11,7 @@ class DatabaseManager:
     session = None
 
     def __init__(self):
-        self.engine = create_engine("postgresql+psycopg2://zxcasdQWE123:zxcasdQWE123@localhost:5432/postgres")
+        self.engine = create_engine("postgresql+psycopg2://postgres:zxcasdQWE123@localhost:5432/postgres")
         Base.metadata.create_all(self.engine)
         _session = sessionmaker(bind=self.engine)
         self.session = _session()
