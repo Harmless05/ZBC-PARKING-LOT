@@ -1,0 +1,22 @@
+<section class="clean-block clean-form dark" style="padding-top: 64px;">
+    <div class="container">
+        <div class="block-heading">
+            <h2 class="text-info">Confirm Code</h2>
+            <p>We have sent you a verification number to your phone!</p>
+        </div>
+        <form method="post" action="/login/confirm">
+            <div id="content" class="mb-3">
+                <label class="form-label">Enter Confirmation Code:</label>
+                <div class="pin-code">
+                    <input type="digit" name="codeA" maxlength="1" autofocus pattern="^[0-9]{1}$"/>
+                    <input type="digit" name="codeB" maxlength="1" pattern="^[0-9]{1}$"/>
+                    <input type="digit" name="codeC" maxlength="1" pattern="^[0-9]{1}$"/>
+                    <input type="digit" name="codeD" maxlength="1" pattern="^[0-9]{1}$">
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <button class="btn btn-primary" type="submit">Submit Code</button>
+            </div>
+        </form>
+    </div>
+</section>

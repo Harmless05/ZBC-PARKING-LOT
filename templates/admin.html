@@ -1,0 +1,10 @@
+{% include 'sections/admin/header.html' %}
+<body>
+{% include 'sections/admin/navbar.html' %}
+<section id="main">
+    {% if other_page %}
+{% include other_page %}
+     {% endif %}
+</section>
+{% include 'sections/admin/footer.html' %}
+</body>

@@ -1,0 +1,64 @@
+{% include 'sections/header.html' %}
+<body>
+{% include 'sections/navbar.html' %}
+<section id="main">
+    <section class="clean-block clean-form dark">
+        <div class="container" style="padding-top: 64px;">
+            <div id="map" style="height: 900px"></div>
+        </div>
+    </section>
+</section>
+{% include 'sections/footer.html' %}
+
+<script>
+    var map = L.map('map').setView([55.42861, 11.78409], 20);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxNativeZoom: 19, // OSM max available zoom is at 19.
+        maxZoom: 20, // Match the map maxZoom, or leave map.options.maxZoom undefined.
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    var markers = [
+        [55.428816, 11.78397],
+        [55.428808, 11.78402],
+        [55.428800, 11.78407],
+        [55.428792, 11.78412],
+        [55.428784, 11.78417],
+        [55.428775, 11.78422],
+        [55.428767, 11.78427],
+        [55.428759, 11.78432],
+        [55.428751, 11.78437],
+    ]
+
+    var greenIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    var redIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    var sensors = {{ sensors|tojson }};
+
+    for (var i = 0; i < sensors.length; i++) {
+        L.marker([sensors[i].latitude, sensors[i].longitude], {icon: sensors[i].parking_status === 1 ? greenIcon : redIcon}).addTo(map);
+    }
+
+    for (var i = 0; i < markers.length; i++) {
+        L.marker(markers[i], {
+            icon: redIcon
+        }).addTo(map);
+    }
+</script>
+</body>

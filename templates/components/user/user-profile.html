@@ -1,0 +1,49 @@
+<section class="clean-block clean-form dark">
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title boxx">Personal Information</p>
+                        <div class="table-responsive profil">
+                            <div class="personalinfobox">
+                                <form style="width:900px" method="post" action="/user-profile">
+                                    <div class="form-group row">
+                                        {% if session['name'] %}
+                                        <label for="inputEmail3" class="col-sm-5 col-form-label">Name</label>
+                                        <label for="name" class="col-sm-7 col-form-label">{{ session['name'] }}</label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-5 col-form-label">Phone Number</label>
+                                        <label for="phone_number" class="col-sm-7 col-form-label"> {{
+                                            session['phone_number'] }}</label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-5 col-form-label">Email Address</label>
+                                        <label for="email" class="col-sm-7 col-form-label"> {{ session['email']
+                                            }}</label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-5 col-form-label">Address</label>
+                                        <label for="address" class="col-sm-7 col-form-label">{{ session['address']
+                                            }}</label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-5 col-form-label">License Plate</label>
+                                        <label for="license_plate" class="col-sm-7 col-form-label">{{ session['license']
+                                            }}</label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-5 col-form-label">2nd License Plate
+                                            (optional)</label>
+                                        <label for="license_plate2" class="col-sm-7 col-form-label"></label>
+                                        {% endif %}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

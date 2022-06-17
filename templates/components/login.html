@@ -1,0 +1,33 @@
+<section class="clean-block clean-form dark">
+    <div class="container" style="padding-top: 64px;">
+        <div class="block-heading">
+            <h2 class="text-info">Log In</h2>
+            <p>Please log in, thanks!</p>
+        </div>
+        <form id="login" method="post" action="/login">
+            <div class="alert alert-danger collapse" role="alert"></div>
+            <div class="mb-3">
+                <label class="form-label" for="phone">Phone Number</label>
+                <input placeholder="12 34 56 78"
+                       class="form-control item"
+                       type="tel"
+                       id="phone"
+                       name="phone"
+                       pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}"
+                       required>
+            </div>
+            <div class="mb-3">
+                <div class="form-check"><input class="form-check-input" type="checkbox" id="checkbox">
+                    <label class="form-check-label" for="checkbox">Remember me</label>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Log In</button>
+        </form>
+    </div>
+    <form>
+        <label class="register1">New user? </label>
+        <a class="nav-link register" href="/register">
+            <span class="menu-title">Register Here</span>
+        </a>
+    </form>
+</section>
